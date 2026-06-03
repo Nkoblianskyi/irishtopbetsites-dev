@@ -2,7 +2,6 @@
 
 import { CalendarDays } from "lucide-react"
 import Image from "next/image"
-import { SITE_DOMAIN, SITE_NAME } from "@/lib/site-config"
 import { editorialLastUpdatedLabel } from "@/lib/editorial-dates"
 
 const HERO_MOBILE_BG = "/bg.webp"
@@ -106,12 +105,11 @@ export function PitchIntroBanner({ onAffiliateNoticeOpen, onUsageTermsOpen }: Pi
         </div>
         <div className="px-6 sm:px-10 lg:px-12 py-7 sm:py-8 lg:py-9 border-b-2 border-[hsl(var(--pitch-green))]">
           <div className="flex flex-col text-center items-center gap-3 sm:gap-4">
-            <p className="editorial-kicker text-trophy-gold">{SITE_DOMAIN}</p>
             <h1
               id="pitch-intro-heading"
-              className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold leading-tight text-white max-w-2xl normal-case tracking-wide"
+              className="font-display text-2xl sm:text-3xl lg:text-[2.15rem] font-bold leading-tight text-white max-w-3xl normal-case tracking-wide"
             >
-              Irish Bookmaker <span className="text-trophy-gold">League Table</span>
+              Best Irish <span className="text-trophy-gold">Bookmaker Sites</span>
             </h1>
             <p className="text-sm sm:text-base text-slate-300 font-body leading-relaxed max-w-2xl normal-case tracking-normal">
               {HERO_DESCRIPTION}
@@ -137,11 +135,10 @@ export function PitchIntroBanner({ onAffiliateNoticeOpen, onUsageTermsOpen }: Pi
         <div className="absolute inset-0 z-[1] bg-pitch-deep/90" aria-hidden />
 
         <div className="relative z-[2] flex flex-col items-center text-center px-4 py-5 gap-3">
-          <p className="editorial-kicker text-trophy-gold text-[9px]">{SITE_NAME}</p>
           <h1
-            className="font-display text-xl leading-tight font-bold text-white max-w-[320px] normal-case tracking-wide"
+            className="font-display text-xl sm:text-2xl leading-tight font-bold text-white max-w-[340px] normal-case tracking-wide"
           >
-            Irish Bookmaker <span className="text-trophy-gold">League Table</span>
+            Best Irish <span className="text-trophy-gold">Bookmaker Sites</span>
           </h1>
           <p className="text-[10px] leading-relaxed text-slate-200 font-body max-w-[340px] normal-case tracking-normal">
             {HERO_DESCRIPTION}
