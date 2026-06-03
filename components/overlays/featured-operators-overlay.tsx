@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { X } from "lucide-react"
 import Link from "next/link"
 import type { BettingSite } from "@/types"
@@ -11,19 +11,60 @@ interface FeaturedOperatorsOverlayProps {
   bettingSites: BettingSite[]
 }
 
+type DisplaySite = {
+  site: BettingSite
+  rank: number
+  featured: boolean
+}
+
+function buildDisplaySites(sites: BettingSite[]): DisplaySite[] {
+  if (sites.length === 0) return []
+
+  if (sites.length === 1) {
+    return [{ site: sites[0], rank: 1, featured: true }]
+  }
+
+  if (sites.length === 2) {
+    return [
+      { site: sites[0], rank: 1, featured: true },
+      { site: sites[1], rank: 2, featured: false },
+    ]
+  }
+
+  return [
+    { site: sites[1], rank: 2, featured: false },
+    { site: sites[0], rank: 1, featured: true },
+    { site: sites[2], rank: 3, featured: false },
+  ]
+}
+
+function modalTitle(count: number): string {
+  if (count === 1) return "Top offer"
+  if (count === 2) return "Top two offers"
+  return "Top three offers"
+}
+
+function gridLayoutClass(count: number): string {
+  if (count === 1) return "grid grid-cols-1 max-w-xs mx-auto"
+  if (count === 2) return "grid grid-cols-2 max-w-2xl mx-auto"
+  return "grid grid-cols-3"
+}
+
 export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOverlayProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [expandedTerms, setExpandedTerms] = useState<Record<number, boolean>>({})
 
+  const featuredSites = useMemo(() => bettingSites.slice(0, 3), [bettingSites])
+  const displaySites = useMemo(() => buildDisplaySites(featuredSites), [featuredSites])
+  const siteCount = displaySites.length
+
   useEffect(() => {
+    if (siteCount === 0) return
     const timer = setTimeout(() => setIsOpen(true), 8000)
     return () => clearTimeout(timer)
-  }, [])
+  }, [siteCount])
 
-  if (!isOpen) return null
-
-  const top3Sites = bettingSites.slice(0, 3)
-  const reorderedSites = [top3Sites[1], top3Sites[0], top3Sites[2]]
+  if (!isOpen || siteCount === 0) return null
 
   const toggleTerms = (siteId: number, e: React.MouseEvent) => {
     e.preventDefault()
@@ -38,7 +79,11 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
       aria-modal="true"
       aria-label="Featured Irish bookmaker offers"
     >
-      <div className="relative w-full max-w-4xl bg-white border-2 border-pitch-green">
+      <div
+        className={`relative w-full bg-white border-2 border-pitch-green ${
+          siteCount === 1 ? "max-w-md" : siteCount === 2 ? "max-w-3xl" : "max-w-4xl"
+        }`}
+      >
         <div className="sport-rule-bar" aria-hidden>
           <span />
           <span />
@@ -46,7 +91,7 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
         </div>
 
         <div className="flex items-center justify-between border-b-2 border-slate-300 px-4 py-2 bg-pitch-navy text-white">
-          <p className="font-display text-sm font-bold uppercase tracking-widest m-0">Top three offers</p>
+          <p className="font-display text-sm font-bold uppercase tracking-widest m-0">{modalTitle(siteCount)}</p>
           <button
             type="button"
             onClick={() => setIsOpen(false)}
@@ -58,38 +103,36 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
         </div>
 
         <div className="px-4 sm:px-6 py-5 sm:py-6">
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 items-stretch">
-            {reorderedSites.map((site: BettingSite, index: number) => {
-              const isCenter = index === 1
-              const isExpanded = !!expandedTerms[site?.id]
-              const rankLabel = isCenter ? "1" : index === 0 ? "2" : "3"
-              const offerHref = site ? resolveOperatorUrl(site) : "#"
+          <div className={`${gridLayoutClass(siteCount)} gap-3 sm:gap-4 items-stretch`}>
+            {displaySites.map(({ site, rank, featured }) => {
+              const isExpanded = !!expandedTerms[site.id]
+              const offerHref = resolveOperatorUrl(site)
 
               return (
                 <article
-                  key={site?.id ?? index}
+                  key={site.id}
                   className={`flex flex-col border-2 bg-white overflow-hidden ${
-                    isCenter ? "border-pitch-green" : "border-slate-300"
+                    featured ? "border-pitch-green" : "border-slate-300"
                   }`}
                 >
                   <Link href={offerHref} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="flex flex-col flex-1 min-h-0">
                     <div className="flex items-center justify-between gap-2 border-b-2 border-slate-300 bg-slate-50 px-3 py-2">
-                      <span className="font-display text-sm font-bold text-pitch-navy tabular-nums">#{rankLabel}</span>
+                      <span className="font-display text-sm font-bold text-pitch-navy tabular-nums">#{rank}</span>
                       <span className="text-[10px] font-semibold text-slate-500 font-body tabular-nums">
-                        {site?.rating?.toFixed(1) ?? "—"}/5
+                        {site.rating.toFixed(1)}/5
                       </span>
                     </div>
 
                     <div
                       className={`flex items-center justify-center border-b-2 border-slate-200 bg-white px-2 ${
-                        isCenter ? "h-[108px] sm:h-[118px]" : "h-[96px] sm:h-[104px]"
+                        featured ? "h-[108px] sm:h-[118px]" : "h-[96px] sm:h-[104px]"
                       }`}
                     >
                       <img
-                        src={site?.logo || "/placeholder.svg"}
-                        alt={site?.name || "Bookmaker"}
+                        src={site.logo || "/placeholder.svg"}
+                        alt={site.name}
                         className={`object-contain w-auto max-w-[92%] ${
-                          isCenter ? "h-[4.25rem] sm:h-[4.75rem]" : "h-14 sm:h-16"
+                          featured ? "h-[4.25rem] sm:h-[4.75rem]" : "h-14 sm:h-16"
                         }`}
                       />
                     </div>
@@ -98,19 +141,21 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
                       <p className="text-[10px] uppercase tracking-wide text-muted-foreground mb-1 font-body">Welcome offer</p>
                       <p
                         className={`font-bold text-pitch-navy leading-tight font-body ${
-                          isCenter ? "text-lg sm:text-xl" : "text-base"
+                          featured ? "text-lg sm:text-xl" : "text-base"
                         }`}
                       >
-                        {site?.bonus}
+                        {site.bonus}
                       </p>
-                      <p className={`mt-1 text-slate-600 font-body ${isCenter ? "text-sm" : "text-xs"}`}>
-                        {site?.welcomeOffer}
-                      </p>
+                      {site.welcomeOffer.trim() ? (
+                        <p className={`mt-1 text-slate-600 font-body ${featured ? "text-sm" : "text-xs"}`}>
+                          {site.welcomeOffer}
+                        </p>
+                      ) : null}
 
                       <div className="mt-auto pt-4">
                         <span
                           className={`brand-cta-uk inline-flex w-full items-center justify-center font-body ${
-                            isCenter ? "h-10 text-sm" : "h-9 text-xs"
+                            featured ? "h-10 text-sm" : "h-9 text-xs"
                           }`}
                         >
                           Get offer
@@ -119,7 +164,7 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
                     </div>
                   </Link>
 
-                  {site?.terms && (
+                  {site.terms && (
                     <div className="px-3 sm:px-4 pb-3 pt-0 border-t-2 border-slate-200 text-left">
                       <p
                         className={`text-[10px] text-muted-foreground leading-relaxed font-body ${
