@@ -62,7 +62,7 @@ function MobileBonusBlock({ site }: { site: BettingSite }) {
   return (
     <div className="flex flex-col items-center justify-center text-center min-w-0 px-1">
       <p className="text-[9px] uppercase tracking-wide text-muted-foreground mb-0.5 font-body">Welcome offer</p>
-      <p className="text-[40px] leading-none font-bold text-foreground font-body w-full whitespace-nowrap overflow-hidden text-ellipsis">
+      <p className="text-[32px] leading-none font-bold text-foreground font-body w-full whitespace-nowrap overflow-hidden text-ellipsis">
         {site.bonus}
       </p>
       {site.welcomeOffer.trim() ? (
@@ -280,13 +280,10 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
             <div className="flex items-center justify-between gap-2 px-3 py-1.5 bg-pitch-navy text-white border-b border-trophy-gold/25 shrink-0">
               <span className="font-display text-sm font-bold tabular-nums">#{rank}</span>
               {SPECIAL_BADGES[rank] ? (
-                <span className="text-[9px] font-bold uppercase tracking-wide text-trophy-gold">
+                <span className="text-[9px] font-bold uppercase tracking-wide text-trophy-gold ml-auto">
                   {SPECIAL_BADGES[rank]}
                 </span>
-              ) : (
-                <span className="flex-1" aria-hidden />
-              )}
-              <span className="ranking-tile__score text-lg text-trophy-gold">{site.rating.toFixed(1)}</span>
+              ) : null}
             </div>
 
             <div className="px-3 pt-3 pb-2 border-b border-slate-100">
@@ -298,17 +295,20 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
                 <img
                   src={site.logo || "/placeholder.svg"}
                   alt={site.name}
-                  className="h-[5rem] w-full max-w-[168px] object-contain object-left"
+                  className="h-[5.5rem] w-full max-w-[188px] object-contain object-left"
                 />
               </div>
               <CtaLabel className="shrink-0 h-10 px-3 text-sm min-w-[108px] max-w-[132px] flex-1" />
             </div>
 
-            <div className="px-3 py-2.5 flex flex-col items-center justify-center">
-              <StarRow rating={site.rating} size="sm" />
-              <p className="text-[10px] text-muted-foreground mt-0.5 font-body whitespace-nowrap">
-                ({formatVotes(site.votes)} votes)
-              </p>
+            <div className="px-3 py-2.5 flex items-center justify-center gap-3">
+              <span className="ranking-tile__score text-2xl leading-none shrink-0">{site.rating.toFixed(1)}</span>
+              <div className="flex flex-col items-center min-w-0">
+                <StarRow rating={site.rating} size="sm" />
+                <p className="text-[10px] text-muted-foreground mt-0.5 font-body whitespace-nowrap">
+                  ({formatVotes(site.votes)} votes)
+                </p>
+              </div>
             </div>
           </div>
         </Link>
