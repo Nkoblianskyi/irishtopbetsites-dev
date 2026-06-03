@@ -4,21 +4,21 @@ import { SITE_DOMAIN, SITE_NAME } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn how ${SITE_NAME} builds flat UK bookmaker league tables, funds independent research, and keeps scores separate from commercial pressure.`,
+  description: `Learn how ${SITE_NAME} builds flat Irish bookmaker league tables, funds independent research, and keeps scores separate from commercial pressure.`,
 }
 
 export default function AboutPage() {
   return (
     <PolicyDocumentFrame
       title={`About ${SITE_NAME}`}
-      subtitle="A UK comparison publisher with a straight-line editorial style — we analyse licensed bookmakers, never take your stakes."
+      subtitle="An Irish comparison publisher with a straight-line editorial style — we analyse licensed bookmakers, never take your stakes."
     >
       <section>
         <h2>Why we exist</h2>
         <p>
-          {SITE_NAME} ({SITE_DOMAIN}) shortens the search for a trustworthy UK bookmaker. We publish flat league tables,
-          explainers, and safer-gambling pointers for British adults who bet on football, racing, and live markets. We are
-          not a gambling operator: you cannot wager, deposit, or withdraw through this website.
+          {SITE_NAME} ({SITE_DOMAIN}) shortens the search for a trustworthy Irish bookmaker. We publish flat league tables,
+          explainers, and safer-gambling pointers for adults in the Republic of Ireland who bet on GAA, football, racing,
+          and live markets. We are not a gambling operator: you cannot wager, deposit, or withdraw through this website.
         </p>
       </section>
 
@@ -32,8 +32,8 @@ export default function AboutPage() {
         <div className="legal-callout">
           <h3>Checklist highlights</h3>
           <ul>
-            <li>Active UKGC licence with visible safer-gambling controls</li>
-            <li>Price quality on Premier League, domestic cups, and Saturday racing</li>
+            <li>Active Irish remote betting licence with visible safer-gambling controls</li>
+            <li>Price quality on GAA, Premier League, domestic cups, and Irish racing cards</li>
             <li>Cash-out behaviour, bet builders, and streaming where advertised</li>
             <li>Welcome offers described without misleading headline claims</li>
           </ul>
@@ -51,9 +51,9 @@ export default function AboutPage() {
       <section>
         <h2>Revenue and referrals</h2>
         <p>
-          Like many UK comparison publishers, we may earn referral fees when you join a bookmaker via outbound links. That
+          Like many Irish comparison publishers, we may earn referral fees when you join a bookmaker via outbound links. That
           keeps {SITE_NAME} free to read. Fees influence whether we can link to a brand — they do not buy a higher editorial
-          score. Any sponsored placement is labelled and held to UK advertising standards.
+          score. Any sponsored placement is labelled and held to Irish advertising standards.
         </p>
         <ul>
           <li>
@@ -80,8 +80,8 @@ export default function AboutPage() {
         <h2>Safer gambling stance</h2>
         <p>
           Betting should remain optional entertainment. We only list operators that provide deposit limits, timeouts,
-          self-exclusion, and visible links to UK support charities. If gambling harms you or someone close, contact
-          GambleAware on 0808 8020 133 or reach GamCare for counselling.
+          self-exclusion, and visible links to Irish support charities. If gambling harms you or someone close, contact
+          Gambling Care Ireland on 1800 936 725.
         </p>
       </section>
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
         <h3>Please remember</h3>
         <p>
           Never stake more than you can afford to lose. Offers change without notice — verify every promotion on the
-          operator&apos;s own site before you deposit. 18+ · UK residents only.
+          operator&apos;s own site before you deposit. 18+ · Irish residents only.
         </p>
       </section>
     </PolicyDocumentFrame>

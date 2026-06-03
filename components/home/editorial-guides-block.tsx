@@ -1,10 +1,12 @@
 "use client"
 
+import { SITE_DOMAIN } from "@/lib/site-config"
+
 const sections = [
   {
     index: "01",
     title: "Match your bookie to your sport",
-    body: "A firm strong on Premier League coupons may feel thin for greyhound cards or tennis outrights. List the competitions you bet weekly, then check whether prices, bet builders, and streaming actually cover that mix — not just the loudest welcome banner.",
+    body: "A firm strong on GAA coupons may feel thin for tennis outrights or UK racing cards. List the competitions you bet weekly, then check whether prices, bet builders, and streaming actually cover that mix — not just the loudest welcome banner.",
   },
   {
     index: "02",
@@ -14,22 +16,22 @@ const sections = [
   {
     index: "03",
     title: "Decode welcome-offer fine print",
-    body: "UK advertising must be clear, yet operator rules still set minimum odds, excluded wallets, time limits, and whether free-bet stakes return. Treat our summaries as a head start; the bookmaker's own terms always win if anything disagrees.",
+    body: "Irish advertising must be clear, yet operator rules still set minimum odds, excluded wallets, time limits, and whether free-bet stakes return. Treat our summaries as a head start; the bookmaker's own terms always win if anything disagrees.",
   },
   {
     index: "04",
     title: "Confirm the licence yourself",
-    body: "Brands serving Great Britain should display a Gambling Commission licence number. Verify it on the operator site before you deposit, and walk away if safer-gambling tools or licensing details look thin.",
+    body: "Brands serving the Republic of Ireland should display a valid remote betting licence. Verify it on the operator site before you deposit, and walk away if safer-gambling tools or licensing details look thin.",
   },
   {
     index: "05",
     title: "Tools serious punters expect",
-    body: "Live betting, partial cash-out, bet builders, and racing streams are baseline now. The strongest firms pair those features with deposit caps, reality checks, timeouts, and a straightforward route to GAMSTOP.",
+    body: "Live betting, partial cash-out, bet builders, and racing streams are baseline now. The strongest firms pair those features with deposit caps, reality checks, timeouts, and a straightforward route to the National Exclusion Register.",
   },
   {
     index: "06",
     title: "Keep betting recreational",
-    body: "Set time and loss limits before kick-off, never chase losses, and step away if betting stops feeling optional. GambleAware and GamCare offer free, confidential UK support whenever you need it.",
+    body: "Set time and loss limits before throw-in, never chase losses, and step away if betting stops feeling optional. Gambling Care Ireland offers free, confidential support whenever you need it.",
   },
 ] as const
 
@@ -50,7 +52,7 @@ export function EditorialGuidesBlock() {
               id="editorial-guides-heading"
               className="font-display text-2xl sm:text-3xl font-bold text-pitch-navy leading-tight"
             >
-              Practical guides for UK punters
+              Practical guides for Irish punters
             </h2>
           </header>
 
@@ -79,8 +81,8 @@ export function EditorialGuidesBlock() {
 
           <footer className="mt-8 pt-6 border-t border-slate-300/60 text-center text-[10px] text-muted-foreground tracking-wide leading-relaxed font-body">
             <p className="mb-1">
-              © {new Date().getFullYear()} topbettingsiteslist.co.uk ·{" "}
-              <span className="text-crimson font-semibold">UK residents 18+ only</span>
+              © {new Date().getFullYear()} {SITE_DOMAIN} ·{" "}
+              <span className="text-crimson font-semibold">Irish residents 18+ only</span>
             </p>
             <p>Offers subject to operator terms, eligibility, and location checks</p>
           </footer>

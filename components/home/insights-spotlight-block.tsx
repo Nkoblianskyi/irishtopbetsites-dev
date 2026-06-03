@@ -4,7 +4,7 @@ const facts = [
   {
     tag: "Odds",
     title: "Closing lines tell the truth",
-    body: "We snapshot prices an hour before kick-off on top-flight fixtures and handicap races. A brand that looks generous at lunch often trims liability by tea-time — we record that drift so you see it before opening an account.",
+    body: "We snapshot prices an hour before throw-in on GAA and top-flight football, and on handicap races at the Curragh and Leopardstown. A brand that looks generous at lunch often trims liability by evening — we record that drift so you see it before opening an account.",
   },
   {
     tag: "Live",
@@ -14,7 +14,7 @@ const facts = [
   {
     tag: "Cash",
     title: "Withdrawals without theatre",
-    body: "Debit reversals, e-wallet holds, and first KYC checks are where trust is won. We log typical payout windows and flag operators that split winnings across methods without a clear warning in the cashier.",
+    body: "Debit reversals, Revolut holds, and first KYC checks are where trust is won. We log typical payout windows and flag operators that split winnings across methods without a clear warning in the cashier.",
   },
 ] as const
 
@@ -34,7 +34,7 @@ export function InsightsSpotlightBlock() {
               Three facts behind every row
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed normal-case tracking-normal">
-              Our league table is not a popularity poll. Each refresh weighs how a brand behaves for everyday UK punters —
+              Our league table is not a popularity poll. Each refresh weighs how a brand behaves for everyday Irish punters —
               not influencer posts or one-week PR bursts.
             </p>
           </div>

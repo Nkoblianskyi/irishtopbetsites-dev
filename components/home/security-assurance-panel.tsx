@@ -4,9 +4,9 @@ import Link from "next/link"
 
 const safeguards = [
   {
-    label: "UKGC",
+    label: "GRAI",
     title: "Licence checked first",
-    text: "Only operators with a current Gambling Commission licence for Great Britain appear in our grid. If regulatory status cannot be verified, the brand is removed — not demoted.",
+    text: "Only operators with a current Irish remote betting licence — overseen by the Gambling Regulatory Authority of Ireland — appear in our grid. If regulatory status cannot be verified, the brand is removed — not demoted.",
   },
   {
     label: "TLS",
@@ -70,8 +70,8 @@ export function SecurityAssurancePanel() {
 
           <p className="mt-8 pt-5 border-t-2 border-white/10 text-[10px] sm:text-[11px] text-slate-500 text-center font-body leading-relaxed normal-case">
             We are an information publisher, not a gambling operator. Deposits, stakes, and withdrawals always sit with the
-            licensed bookmaker you choose. <span className="text-crimson font-semibold">18+</span> · UK only ·
-            BeGambleAware.org
+            licensed bookmaker you choose. <span className="text-crimson font-semibold">18+</span> · Republic of Ireland only ·
+            GamblingCare.ie
           </p>
         </div>
       </div>

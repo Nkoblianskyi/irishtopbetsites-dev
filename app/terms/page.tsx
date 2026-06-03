@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <PolicyDocumentFrame
       title="Terms of Use"
-      subtitle={`Rules for using ${SITE_DOMAIN} and relying on our UK bookmaker league tables and guides.`}
+      subtitle={`Rules for using ${SITE_DOMAIN} and relying on our Irish bookmaker league tables and guides.`}
     >
       <section>
         <h2>1. Acceptance</h2>
@@ -24,15 +24,16 @@ export default function TermsPage() {
       <section>
         <h2>2. Nature of the service</h2>
         <p>
-          We provide editorial league tables, guides, and links to third-party bookmakers licensed for Great Britain. We do not
-          operate gambling products, hold customer funds, settle bets, or provide betting advice tailored to your finances.
+          We provide editorial league tables, guides, and links to third-party bookmakers licensed for the Republic of Ireland.
+          We do not operate gambling products, hold customer funds, settle bets, or provide betting advice tailored to your
+          finances.
         </p>
       </section>
 
       <section>
         <h2>3. Eligibility</h2>
         <p>
-          Content is intended for UK residents aged 18 or over. You are responsible for confirming your own eligibility with
+          Content is intended for Irish residents aged 18 or over. You are responsible for confirming your own eligibility with
           each operator before registering, verifying identity, or depositing.
         </p>
       </section>
@@ -80,16 +81,16 @@ export default function TermsPage() {
       <section>
         <h2>9. Safer gambling</h2>
         <p>
-          Gambling can cause harm. Use operator limits, take breaks, and seek help from GambleAware (0808 8020 133) or GamCare if
-          needed. Visit our Safer Gambling page for additional UK resources.
+          Gambling can cause harm. Use operator limits, take breaks, and seek help from Gambling Care Ireland (1800 936 725) if
+          needed. Visit our Safer Gambling page for additional Irish resources.
         </p>
       </section>
 
       <section>
         <h2>10. Governing law</h2>
         <p>
-          These terms are governed by the laws of England and Wales. Courts in England and Wales have exclusive jurisdiction,
-          subject to mandatory consumer protections in your home nation where applicable.
+          These terms are governed by the laws of Ireland. Irish courts have exclusive jurisdiction, subject to mandatory
+          consumer protections in your home nation where applicable.
         </p>
       </section>
 

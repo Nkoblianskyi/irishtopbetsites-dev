@@ -3,20 +3,20 @@ export const SITE_URL = "https://irishtopbetsites.com"
 export const SITE_NAME = "Irish Top Bet Sites"
 
 export const SITE_TAGLINE =
-  "Straight-line UK bookmaker tables for football, racing, and live markets"
+  "Straight-line Irish bookmaker tables for GAA, football, racing, and live markets"
 
 export const SITE_DOMAIN = "irishtopbetsites.com"
 
 export const SITE_METADATA = {
-  title: "Irish Top Bet Sites — UK Bookmaker Rankings & Offers",
+  title: "Irish Top Bet Sites — Licensed Bookmaker Rankings & Offers",
   description:
-    "irishtopbetsites.com ranks UKGC-licensed bookmakers for British punters. Compare welcome offers, odds depth, apps, payouts, and safer-gambling tools in one flat editorial table.",
+    "irishtopbetsites.com ranks Irish-licensed bookmakers for Republic of Ireland punters. Compare welcome offers, odds depth, apps, payouts, and safer-gambling tools in one flat editorial table.",
   keywords: [
-    "UK betting sites",
-    "British bookmakers",
-    "UKGC licensed",
-    "football betting UK",
-    "horse racing bookmakers",
+    "Irish betting sites",
+    "bookmakers Ireland",
+    "GRAI licensed",
+    "GAA betting Ireland",
+    "horse racing bookmakers Ireland",
     "Irish top bet sites",
   ],
 } as const

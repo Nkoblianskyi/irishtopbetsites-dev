@@ -36,7 +36,7 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
       className="hidden md:flex fixed inset-0 bg-pitch-deep/85 z-50 items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Featured UK bookmaker offers"
+      aria-label="Featured Irish bookmaker offers"
     >
       <div className="relative w-full max-w-4xl bg-white border-2 border-pitch-green">
         <div className="sport-rule-bar" aria-hidden>
@@ -63,7 +63,7 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
               const isCenter = index === 1
               const isExpanded = !!expandedTerms[site?.id]
               const rankLabel = isCenter ? "1" : index === 0 ? "2" : "3"
-              const offerHref = resolveOperatorUrl(site?.link || "#")
+              const offerHref = site ? resolveOperatorUrl(site) : "#"
 
               return (
                 <article
@@ -146,7 +146,7 @@ export function FeaturedOperatorsOverlay({ bettingSites }: FeaturedOperatorsOver
 
           <footer className="mt-5 pt-4 border-t-2 border-slate-300 text-center">
             <p className="text-xs text-slate-500 leading-relaxed font-body m-0">
-              <span className="font-semibold text-crimson">18+</span> · UK residents · T&Cs apply · BeGambleAware.org ·
+              <span className="font-semibold text-crimson">18+</span> · Irish residents · T&Cs apply · GamblingCare.ie ·
               Offers may change — confirm on the operator site before depositing.
             </p>
           </footer>

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   keywords: [...SITE_METADATA.keywords],
   openGraph: {
     type: "website",
-    locale: "en_GB",
+    locale: "en_IE",
     url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_METADATA.title,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB">
+    <html lang="en-IE">
       <body className={`${barlow.variable} ${oswald.variable} font-body`}>
         <div className="min-h-screen bg-[hsl(var(--cream-panel))]">
           <SiteTopBar />

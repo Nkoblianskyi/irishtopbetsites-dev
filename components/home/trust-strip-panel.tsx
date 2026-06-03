@@ -7,7 +7,7 @@ const pillars = [
   {
     index: "01",
     title: "Licence on the line",
-    text: "No UKGC number on the footer means no row in our table. We drop operators that hide commission status or stall on deposit-limit tooling.",
+    text: "No Irish licence number on the footer means no row in our table. We drop operators that hide regulatory status or stall on deposit-limit tooling.",
   },
   {
     index: "02",
@@ -40,11 +40,12 @@ export function TrustStripPanel() {
                 id="trust-strip-heading"
                 className="font-display text-2xl sm:text-[1.75rem] font-bold text-white leading-[1.15] mb-4 normal-case tracking-wide"
               >
-                {SITE_NAME} — <span className="text-trophy-gold">flat</span> UK betting intelligence
+                {SITE_NAME} — <span className="text-trophy-gold">flat</span> Irish betting intelligence
               </h2>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-body max-w-md normal-case tracking-normal">
-                We test bookmakers the way match-day punters do: early prices on domestic football, handicap cards at the
-                weekend, half-time markets that do not freeze, and whether welcome copy matches the rules in the footer.
+                We test bookmakers the way match-day punters do: early prices on GAA and Premier League football, handicap
+                cards at Irish tracks, half-time markets that do not freeze, and whether welcome copy matches the rules in
+                the footer.
               </p>
               <Link
                 href="/about"

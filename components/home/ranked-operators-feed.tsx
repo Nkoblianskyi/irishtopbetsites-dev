@@ -7,7 +7,7 @@ import type { BettingSite } from "@/types"
 
 export function RankedOperatorsFeed() {
   return (
-    <section aria-label="Ranked UK bookmaker listings" className="space-y-3 w-full">
+    <section aria-label="Ranked Irish bookmaker listings" className="space-y-3 w-full">
       {bettingSites.map((site: BettingSite, index: number) => (
         <div key={site.id} className="w-full">
           <OperatorRankingTile site={site} rank={index + 1} />

@@ -47,7 +47,7 @@ export function PolicyDocumentFrame({
           <aside className="hidden lg:block">
             <PolicyNav variant="sidebar" />
             <p className="mt-6 text-[11px] leading-relaxed text-slate-500 font-body border-t border-slate-200 pt-4">
-              {SITE_NAME} is an independent UK comparison publisher on irishtopbetsites.com. We do not operate gambling services.
+              {SITE_NAME} is an independent Irish comparison publisher on irishtopbetsites.com. We do not operate gambling services.
             </p>
           </aside>
 
@@ -69,7 +69,7 @@ export function PolicyDocumentFrame({
                 </div>
                 <div>
                   <dt className="inline font-semibold text-slate-700">Audience: </dt>
-                  <dd className="inline">UK residents, 18+</dd>
+                  <dd className="inline">Irish residents, 18+</dd>
                 </div>
               </dl>
             </header>
@@ -80,8 +80,8 @@ export function PolicyDocumentFrame({
 
             <footer className="mt-6 border border-slate-200 bg-white rounded-sm px-4 py-3 text-center sm:text-left">
               <p className="text-xs leading-relaxed text-slate-500 font-body m-0">
-                <span className="font-semibold text-crimson">18+</span> · UK residents only · Gambling can be addictive ·
-                When the fun stops, stop · BeGambleAware.org
+                <span className="font-semibold text-crimson">18+</span> · Irish residents only · Gambling can be addictive ·
+                When the fun stops, stop · GamblingCare.ie
               </p>
             </footer>
           </div>

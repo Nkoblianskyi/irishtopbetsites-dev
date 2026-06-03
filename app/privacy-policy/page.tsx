@@ -4,14 +4,14 @@ import { SITE_DOMAIN, SITE_NAME } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${SITE_NAME} collects, uses, stores, and protects personal data under UK GDPR and PECR rules.`,
+  description: `How ${SITE_NAME} collects, uses, stores, and protects personal data under Irish and EU data protection law.`,
 }
 
 export default function PrivacyPolicyPage() {
   return (
     <PolicyDocumentFrame
       title="Privacy Policy"
-      subtitle={`Your privacy on ${SITE_DOMAIN} — what we process when you browse our UK bookmaker league tables.`}
+      subtitle={`Your privacy on ${SITE_DOMAIN} — what we process when you browse our Irish bookmaker league tables.`}
     >
       <section>
         <h2>1. Who runs this site</h2>
@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       <section>
-        <h2>4. Legal bases under UK GDPR</h2>
+        <h2>4. Legal bases under GDPR</h2>
         <p>
           We rely on legitimate interests to operate essential site functions and limited analytics where permitted, on
           consent for non-essential cookies, and on contractual necessity where we must retain records to demonstrate
@@ -71,20 +71,20 @@ export default function PrivacyPolicyPage() {
 
       <section>
         <h2>7. Your rights</h2>
-        <p>Under UK data protection law you may have the right to:</p>
+        <p>Under Irish and EU data protection law you may have the right to:</p>
         <ul>
           <li>Access, rectify, or erase personal data we hold about you</li>
           <li>Restrict or object to certain processing activities</li>
           <li>Withdraw cookie consent via browser settings or our consent banner</li>
-          <li>Lodge a complaint with the Information Commissioner&apos;s Office (ICO)</li>
+          <li>Lodge a complaint with the Data Protection Commission (dataprotection.ie)</li>
         </ul>
       </section>
 
       <section>
         <h2>8. International transfers</h2>
         <p>
-          Some suppliers may process data outside the UK. Where that occurs, we use appropriate safeguards such as UK
-          International Data Transfer Agreements or equivalent mechanisms approved at the time of transfer.
+          Some suppliers may process data outside the European Economic Area. Where that occurs, we use appropriate safeguards
+          such as Standard Contractual Clauses or equivalent mechanisms approved at the time of transfer.
         </p>
       </section>
 

@@ -1,5 +1,6 @@
 export interface BettingSite {
   id: number
+  slug: string
   name: string
   logo: string
   rating: number
@@ -11,6 +12,8 @@ export interface BettingSite {
   userRating: number
   votes: number
   link: string
+  /** Optional per-brand affiliate URL; used when USE_AFFILIATE_LINKS is true. */
+  affiliateLink?: string
   backgroundImage?: string
 }
 

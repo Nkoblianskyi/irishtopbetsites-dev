@@ -4,11 +4,10 @@ import { FOOTER_NAV, SITE_DOMAIN, SITE_NAME } from "@/lib/site-config"
 import { editorialLastUpdatedLabel } from "@/lib/editorial-dates"
 
 const SUPPORT_ORGS = [
-  { href: "https://www.gambleaware.org/", src: "/gamble.webp", label: "GambleAware — free gambling support" },
-  { href: "https://www.gamcare.org.uk/", src: "/gamecare.svg", label: "GamCare — advice and counselling" },
-  { href: "https://www.gordonmoody.org.uk/", src: "/gordon.png", label: "Gordon Moody — residential treatment" },
-  { href: "https://www.gamblersanonymous.org.uk/", src: "/anonymos.avif", label: "Gamblers Anonymous UK" },
-  { href: "https://www.gamstop.co.uk/", src: "/gamstop.svg", label: "GAMSTOP — UK self-exclusion scheme" },
+  { href: "https://www.gamblingcare.ie/", src: "/gamble.webp", label: "Gambling Care Ireland — free gambling support" },
+  { href: "https://www.exclusionregister.ie/", src: "/gamstop.svg", label: "National Exclusion Register — Irish self-exclusion" },
+  { href: "https://www.gamblersanonymous.ie/", src: "/anonymos.avif", label: "Gamblers Anonymous Ireland" },
+  { href: "https://www.rutlandcentre.ie/", src: "/gordon.png", label: "Rutland Centre — addiction treatment" },
 ] as const
 
 function BrandWordmark() {
@@ -49,7 +48,7 @@ export function SiteBottomBar() {
         <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
           <AgeBadgeLarge />
           <p className="text-center sm:text-left text-sm font-semibold text-white font-body max-w-xl">
-            This website is for UK residents aged <span className="text-trophy-gold">18 and over</span> only. Gambling
+            This website is for Irish residents aged <span className="text-trophy-gold">18 and over</span> only. Gambling
             can be addictive — please play responsibly.
           </p>
         </div>
@@ -69,7 +68,7 @@ export function SiteBottomBar() {
               <BrandWordmark />
             </Link>
             <p className="mt-3 text-xs text-slate-400 max-w-xs font-body leading-relaxed">
-              Flat editorial tables for UKGC-licensed bookmakers — we publish comparisons, not betting services.
+              Flat editorial tables for Irish-licensed bookmakers — we publish comparisons, not betting services.
             </p>
             <p className="mt-3 text-[11px] text-slate-500 font-body">
               Rankings last reviewed{" "}
@@ -104,8 +103,8 @@ export function SiteBottomBar() {
                 Important
               </span>
               <span className="block mt-1">
-                Content on {SITE_DOMAIN} is intended for UK residents aged 18+. Offers may change without notice; always
-                read each operator&apos;s full terms before registering. We compare UKGC-licensed bookmakers only and do
+                Content on {SITE_DOMAIN} is intended for Irish residents aged 18+. Offers may change without notice; always
+                read each operator&apos;s full terms before registering. We compare Irish-licensed bookmakers only and do
                 not accept wagers. Outbound links may earn a referral commission. When the fun stops, stop.
               </span>
             </p>
@@ -119,7 +118,7 @@ export function SiteBottomBar() {
                 Safer gambling support
               </h2>
               <p className="text-xs text-slate-500 mt-1 max-w-md font-body leading-relaxed">
-                Free, confidential help from UK charities — available 24/7 if betting stops feeling like entertainment.
+                Free, confidential help from Irish charities — available if betting stops feeling like entertainment.
               </p>
             </div>
           </div>
@@ -147,7 +146,7 @@ export function SiteBottomBar() {
             © {new Date().getFullYear()} {SITE_DOMAIN}. All rights reserved.
           </p>
           <p className="text-crimson font-bold text-xs sm:text-sm tracking-wide font-body">
-            18+ · UK only · BeGambleAware.org
+            18+ · Republic of Ireland only · GamblingCare.ie
           </p>
         </div>
       </div>

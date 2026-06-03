@@ -47,7 +47,7 @@ export function UsageTermsOverlay({ isOpen, onClose }: UsageTermsOverlayProps) {
           </p>
           <section>
             <h3 className="font-display font-bold text-pitch-navy mb-1 uppercase tracking-wide text-sm">Age & location</h3>
-            <p>{SITE_NAME} is for UK residents aged 18+. Leave immediately if you are underage.</p>
+            <p>{SITE_NAME} is for Irish residents aged 18+. Leave immediately if you are underage.</p>
           </section>
           <section>
             <h3 className="font-display font-bold text-pitch-navy mb-1 uppercase tracking-wide text-sm">Information only</h3>
@@ -64,7 +64,7 @@ export function UsageTermsOverlay({ isOpen, onClose }: UsageTermsOverlayProps) {
             <ul className="list-disc pl-5 space-y-1">
               <li>Set deposit and time limits before you bet</li>
               <li>Never chase losses</li>
-              <li>Contact GambleAware or GamCare if betting harms you</li>
+              <li>Contact Gambling Care Ireland on 1800 936 725 if betting harms you</li>
             </ul>
           </section>
         </div>

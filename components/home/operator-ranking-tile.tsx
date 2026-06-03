@@ -58,25 +58,16 @@ function RankBadge({ rank }: { rank: number }) {
   )
 }
 
-function MobileLogoBonusRow({ site }: { site: BettingSite }) {
+function MobileBonusBlock({ site }: { site: BettingSite }) {
   return (
-    <div className="grid w-full grid-cols-[minmax(108px,44%)_1fr] gap-2.5 items-center">
-      <div className="flex justify-start items-center min-w-0">
-        <img
-          src={site.logo || "/placeholder.svg"}
-          alt={site.name}
-          className="h-[4.25rem] w-full max-w-[142px] object-contain object-left"
-        />
-      </div>
-      <div className="flex flex-col items-center justify-center text-center min-w-0 px-0.5">
-        <p className="text-[9px] uppercase tracking-wide text-muted-foreground mb-0.5 font-body">Welcome offer</p>
-        <p className="text-[20px] leading-tight font-bold text-foreground font-body w-full whitespace-nowrap overflow-hidden text-ellipsis">
-          {site.bonus}
-        </p>
-        <p className="text-xs font-semibold text-foreground/85 leading-snug line-clamp-2 mt-0.5 font-body w-full">
-          {site.welcomeOffer}
-        </p>
-      </div>
+    <div className="flex flex-col items-center justify-center text-center min-w-0 px-1">
+      <p className="text-[9px] uppercase tracking-wide text-muted-foreground mb-0.5 font-body">Welcome offer</p>
+      <p className="text-[20px] leading-tight font-bold text-foreground font-body w-full whitespace-nowrap overflow-hidden text-ellipsis">
+        {site.bonus}
+      </p>
+      <p className="text-xs font-semibold text-foreground/85 leading-snug line-clamp-2 mt-0.5 font-body w-full">
+        {site.welcomeOffer}
+      </p>
     </div>
   )
 }
@@ -93,11 +84,7 @@ function DesktopOfferBlock({ site }: { site: BettingSite }) {
   )
 }
 
-function LogoOfferRow({ site, size }: { site: BettingSite; size: "tablet" | "mobile" }) {
-  if (size === "mobile") {
-    return <MobileLogoBonusRow site={site} />
-  }
-
+function TabletLogoBlock({ site }: { site: BettingSite }) {
   return (
     <div className="flex items-center gap-3 min-w-0 flex-1">
       <img
@@ -221,7 +208,7 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
 
   return (
     <article className="block w-full">
-      {/* Desktop */}
+      {/* Desktop — logo · rating · offer · CTA */}
       <div className={`hidden lg:block ${tileClass}`}>
         {isFeatured && (
           <div className="sport-rule-bar h-1" aria-hidden>
@@ -230,10 +217,10 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
             <span />
           </div>
         )}
-        <Link href={resolveOperatorUrl(site.link)} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="block group">
+        <Link href={resolveOperatorUrl(site)} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="block group">
           <div className="flex min-h-[128px] xl:min-h-[136px]">
             <RankBadge rank={rank} />
-            <div className="flex-1 grid grid-cols-[minmax(148px,22%)_minmax(0,1fr)_auto_132px] gap-x-6 xl:gap-x-10 items-center px-5 xl:px-6 py-4">
+            <div className="flex-1 grid grid-cols-[minmax(148px,22%)_auto_minmax(0,1fr)_132px] gap-x-6 xl:gap-x-10 items-center px-5 xl:px-6 py-4">
               <div className="flex justify-start items-center border-r border-slate-100 pr-5 xl:pr-6 min-w-0">
                 <img
                   src={site.logo || "/placeholder.svg"}
@@ -241,11 +228,11 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
                   className="w-[152px] xl:w-[180px] h-[72px] xl:h-[84px] max-w-full object-contain object-left"
                 />
               </div>
-              <div className="flex justify-center items-center min-w-0 border-r border-slate-100 pr-5 xl:pr-6">
-                <DesktopOfferBlock site={site} />
-              </div>
-              <div className="flex justify-center shrink-0 pl-2 pr-6 xl:pr-8">
+              <div className="flex justify-center shrink-0 pl-2 pr-5 xl:pr-6 border-r border-slate-100">
                 <RatingColumn site={site} />
+              </div>
+              <div className="flex justify-center items-center min-w-0 pr-5 xl:pr-6">
+                <DesktopOfferBlock site={site} />
               </div>
               <div className="flex flex-col items-center justify-center gap-1.5 shrink-0 w-[132px] pl-2 border-l border-slate-100">
                 <CtaLabel className="w-full max-w-[116px] h-10 text-xs" />
@@ -260,16 +247,16 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
         <TermsFooter {...termsProps} size="desktop" ref={termsContainerRef} />
       </div>
 
-      {/* Tablet */}
+      {/* Tablet — rating · logo+offer · CTA */}
       <div className={`hidden md:block lg:hidden ${tileClass}`}>
-        <Link href={resolveOperatorUrl(site.link)} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="block">
+        <Link href={resolveOperatorUrl(site)} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="block">
           <div className="flex items-stretch min-h-[112px]">
             <RankBadge rank={rank} />
             <div className="flex flex-1 items-center gap-3 px-3 py-3 min-w-0">
-              <LogoOfferRow site={site} size="tablet" />
-              <div className="shrink-0 border-l border-slate-100">
+              <div className="shrink-0 border-r border-slate-100">
                 <RatingColumn site={site} size="sm" />
               </div>
+              <TabletLogoBlock site={site} />
               <CtaLabel className="shrink-0 h-9 px-4 text-xs" />
             </div>
           </div>
@@ -277,7 +264,7 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
         <TermsFooter {...termsProps} size="tablet" />
       </div>
 
-      {/* Mobile */}
+      {/* Mobile — bonus on top · logo + stars · CTA footer */}
       <div className={`md:hidden ${tileClass}`}>
         {isFeatured && (
           <div className="sport-rule-bar h-1" aria-hidden>
@@ -286,7 +273,7 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
             <span />
           </div>
         )}
-        <Link href={resolveOperatorUrl(site.link)} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="block">
+        <Link href={resolveOperatorUrl(site)} target="_blank" rel={OPERATOR_OUTBOUND_REL} className="block">
           <div className="flex flex-col min-h-[172px]">
             <div className="flex items-center justify-between gap-2 px-3 py-1.5 bg-pitch-navy text-white border-b border-trophy-gold/25 shrink-0">
               <span className="font-display text-sm font-bold tabular-nums">#{rank}</span>
@@ -297,22 +284,27 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
               ) : (
                 <span className="flex-1" aria-hidden />
               )}
-              <span className="ranking-tile__score text-lg text-trophy-gold">{site.rating.toFixed(1)}</span>
+              <CtaLabel className="h-7 px-3 text-[11px] max-w-[108px]" />
             </div>
 
-            <div className="px-3 pt-3 pb-3">
-              <LogoOfferRow site={site} size="mobile" />
+            <div className="px-3 pt-3 pb-2 border-b border-slate-100">
+              <MobileBonusBlock site={site} />
             </div>
 
-            <div className="mt-auto px-3 pb-3 pt-2.5 border-t border-slate-100">
-              <div className="flex items-center justify-between w-full gap-2">
-                <div className="flex-1 min-w-0">
-                  <StarRow rating={site.rating} size="sm" />
-                  <p className="text-[10px] text-center text-muted-foreground mt-0.5 font-body">
-                    ({formatVotes(site.votes)} votes)
-                  </p>
-                </div>
-                <CtaLabel className="flex-1 max-w-[140px] h-10 text-sm shrink-0" />
+            <div className="px-3 py-3 flex items-center gap-3">
+              <div className="flex justify-start items-center min-w-0 flex-1">
+                <img
+                  src={site.logo || "/placeholder.svg"}
+                  alt={site.name}
+                  className="h-[4.25rem] w-full max-w-[142px] object-contain object-left"
+                />
+              </div>
+              <div className="shrink-0 flex flex-col items-center justify-center min-w-[72px] border-l border-slate-100 pl-3">
+                <span className="ranking-tile__score text-2xl leading-none">{site.rating.toFixed(1)}</span>
+                <StarRow rating={site.rating} size="sm" />
+                <p className="text-[9px] text-muted-foreground mt-0.5 font-body whitespace-nowrap">
+                  ({formatVotes(site.votes)} votes)
+                </p>
               </div>
             </div>
           </div>

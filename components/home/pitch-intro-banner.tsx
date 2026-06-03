@@ -13,7 +13,7 @@ interface PitchIntroBannerProps {
 }
 
 const HERO_DESCRIPTION =
-  "Sharp, side-by-side tables for UKGC-licensed firms — football coupons, Saturday racing, and in-play speed scored without the gloss."
+  "Sharp, side-by-side tables for Irish-licensed firms — GAA coupons, racing cards, and in-play speed scored without the gloss."
 
 function TrustIndicators({ mobile }: { mobile?: boolean }) {
   const lastUpdated = editorialLastUpdatedLabel()
@@ -52,7 +52,7 @@ function TrustIndicators({ mobile }: { mobile?: boolean }) {
           18+
         </span>
         <span className={`${mobile ? "text-[11px]" : "text-xs sm:text-sm"} font-semibold text-white font-body`}>
-          UK adults only
+          Irish adults only
         </span>
       </div>
     </div>
@@ -88,7 +88,7 @@ function HeroDisclaimer({ onAffiliateNoticeOpen, onUsageTermsOpen, mobile }: Pit
         T&Cs
       </button>
       <span aria-hidden> · </span>
-      BeGambleAware.org
+      GamblingCare.ie
     </p>
   )
 }
@@ -111,7 +111,7 @@ export function PitchIntroBanner({ onAffiliateNoticeOpen, onUsageTermsOpen }: Pi
               id="pitch-intro-heading"
               className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold leading-tight text-white max-w-2xl normal-case tracking-wide"
             >
-              UK Bookmaker <span className="text-trophy-gold">League Table</span>
+              Irish Bookmaker <span className="text-trophy-gold">League Table</span>
             </h1>
             <p className="text-sm sm:text-base text-slate-300 font-body leading-relaxed max-w-2xl normal-case tracking-normal">
               {HERO_DESCRIPTION}
@@ -141,7 +141,7 @@ export function PitchIntroBanner({ onAffiliateNoticeOpen, onUsageTermsOpen }: Pi
           <h1
             className="font-display text-xl leading-tight font-bold text-white max-w-[320px] normal-case tracking-wide"
           >
-            UK Bookmaker <span className="text-trophy-gold">League Table</span>
+            Irish Bookmaker <span className="text-trophy-gold">League Table</span>
           </h1>
           <p className="text-[10px] leading-relaxed text-slate-200 font-body max-w-[340px] normal-case tracking-normal">
             {HERO_DESCRIPTION}

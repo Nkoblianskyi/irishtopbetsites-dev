@@ -39,14 +39,14 @@ export function AffiliateNoticeOverlay({ isOpen, onClose }: AffiliateNoticeOverl
 
         <div className="flex-1 overflow-y-auto p-5 space-y-4 text-sm text-slate-700 font-body">
           <p>
-            {SITE_NAME} stays free because licensed UK bookmakers may pay a referral fee when you register through our
+            {SITE_NAME} stays free because licensed Irish bookmakers may pay a referral fee when you register through our
             outbound links. You never pay us directly, and fees cannot move a brand up the league table.
           </p>
           <section>
             <h3 className="font-display font-bold text-pitch-navy mb-1 uppercase tracking-wide text-sm">What we score</h3>
             <ul className="list-disc pl-5 space-y-1">
-              <li>UKGC licensing and visible safer-gambling controls</li>
-              <li>Odds depth on football and handicap racing</li>
+              <li>Irish remote betting licensing and visible safer-gambling controls</li>
+              <li>Odds depth on GAA, football, and handicap racing</li>
               <li>Payout speed, support quality, and mobile stability</li>
               <li>Whether welcome offers match the rules in the footer</li>
             </ul>
@@ -65,7 +65,7 @@ export function AffiliateNoticeOverlay({ isOpen, onClose }: AffiliateNoticeOverl
         </div>
 
         <div className="bg-red-50 border-t-2 border-crimson/30 p-4 flex-shrink-0">
-          <p className="text-crimson font-semibold text-center text-sm font-body">18+ · UK only · Affiliate links may apply</p>
+          <p className="text-crimson font-semibold text-center text-sm font-body">18+ · Republic of Ireland only · Affiliate links may apply</p>
         </div>
       </div>
     </div>

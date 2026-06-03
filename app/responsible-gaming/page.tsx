@@ -4,19 +4,19 @@ import { SITE_NAME } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "Safer Gambling",
-  description: `Safer gambling guidance, warning signs, and UK support contacts recommended by ${SITE_NAME}.`,
+  description: `Safer gambling guidance, warning signs, and Irish support contacts recommended by ${SITE_NAME}.`,
 }
 
 export default function ResponsibleGamingPage() {
   return (
     <PolicyDocumentFrame
       title="Safer Gambling"
-      subtitle="Betting should stay optional. If it stops feeling that way, free confidential help is available across the UK."
+      subtitle="Betting should stay optional. If it stops feeling that way, free confidential help is available across Ireland."
     >
       <section className="legal-callout legal-callout--alert">
         <h2>Need help now?</h2>
         <p>
-          National Gambling Helpline: <strong>0808 8020 133</strong> (free, 24/7). When the fun stops, stop.
+          Gambling Care Ireland: <strong>1800 936 725</strong> (free, confidential). When the fun stops, stop.
         </p>
       </section>
 
@@ -54,32 +54,32 @@ export default function ResponsibleGamingPage() {
 
       <section>
         <h2>Tools on licensed sites</h2>
-        <p>UKGC-licensed operators must offer:</p>
+        <p>Irish-licensed operators must offer:</p>
         <ul>
           <li>Deposit, loss, and session limits you can lower instantly</li>
           <li>Reality checks and cooling-off timeouts</li>
-          <li>Self-exclusion — including multi-operator schemes such as GAMSTOP</li>
+          <li>Self-exclusion — including multi-operator schemes such as the National Exclusion Register</li>
         </ul>
       </section>
 
       <section>
-        <h2>UK support organisations</h2>
+        <h2>Irish support organisations</h2>
         <div className="legal-card-grid">
           <div className="legal-card">
-            <h3>GambleAware</h3>
-            <p>gambleaware.org · 0808 8020 133</p>
+            <h3>Gambling Care Ireland</h3>
+            <p>gamblingcare.ie · 1800 936 725</p>
           </div>
           <div className="legal-card">
-            <h3>GamCare</h3>
-            <p>gamcare.org.uk · Live chat and counselling</p>
+            <h3>National Exclusion Register</h3>
+            <p>exclusionregister.ie · Multi-operator self-exclusion</p>
           </div>
           <div className="legal-card">
-            <h3>Gamblers Anonymous UK</h3>
-            <p>gamblersanonymous.org.uk · Peer support meetings</p>
+            <h3>Gamblers Anonymous Ireland</h3>
+            <p>gamblersanonymous.ie · Peer support meetings</p>
           </div>
           <div className="legal-card">
-            <h3>Gordon Moody</h3>
-            <p>gordonmoody.org.uk · 01384 241292</p>
+            <h3>Rutland Centre</h3>
+            <p>rutlandcentre.ie · Addiction treatment and counselling</p>
           </div>
         </div>
       </section>
@@ -88,14 +88,14 @@ export default function ResponsibleGamingPage() {
         <h2>For friends and family</h2>
         <p>
           You cannot force someone to stop, but you can encourage professional help and avoid paying their gambling debts.
-          GamCare also supports people affected by another person&apos;s gambling.
+          Gambling Care Ireland also supports people affected by another person&apos;s gambling.
         </p>
       </section>
 
       <section>
         <h2>Our pledge at {SITE_NAME}</h2>
         <p>
-          We only feature operators with visible safer-gambling tools and clear UK licensing. We remove brands that repeatedly
+          We only feature operators with visible safer-gambling tools and clear Irish licensing. We remove brands that repeatedly
           fail on player protection — regardless of commercial relationships.
         </p>
       </section>

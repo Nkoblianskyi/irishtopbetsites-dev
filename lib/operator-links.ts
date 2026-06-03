@@ -1,12 +1,38 @@
+import type { BettingSite } from "@/types"
+import { operatorAffiliateLinks } from "@/data/mock-data"
+
 /**
- * Outbound bookmaker URLs — direct operator sites only (no affiliate / tracker redirects).
+ * Flip to `true` when affiliate tracker URLs are ready in mock-data.
+ * `false` → outbound clicks use each site's direct `link`.
  */
 export const USE_AFFILIATE_LINKS = false
 
-/** rel for direct operator links (referrer allowed; no sponsored/affiliate flags). */
-export const OPERATOR_OUTBOUND_REL = "noopener"
+export const OPERATOR_OUTBOUND_REL = USE_AFFILIATE_LINKS
+  ? "noopener noreferrer sponsored"
+  : "noopener"
 
-export function resolveOperatorUrl(directUrl: string): string {
-  if (!directUrl?.trim()) return "#"
-  return directUrl.trim()
+type OperatorLinkInput = string | Pick<BettingSite, "link" | "slug" | "affiliateLink">
+
+function pickAffiliateUrl(site: Pick<BettingSite, "link" | "slug" | "affiliateLink">): string | undefined {
+  const fromSite = site.affiliateLink?.trim()
+  if (fromSite) return fromSite
+
+  const fromMap = site.slug ? operatorAffiliateLinks[site.slug]?.trim() : undefined
+  if (fromMap) return fromMap
+
+  return undefined
+}
+
+export function resolveOperatorUrl(input: OperatorLinkInput): string {
+  if (typeof input === "string") {
+    const url = input.trim()
+    return url || "#"
+  }
+
+  if (USE_AFFILIATE_LINKS) {
+    const affiliate = pickAffiliateUrl(input)
+    if (affiliate) return affiliate
+  }
+
+  return input.link?.trim() || "#"
 }
