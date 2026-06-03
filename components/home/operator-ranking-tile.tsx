@@ -62,12 +62,14 @@ function MobileBonusBlock({ site }: { site: BettingSite }) {
   return (
     <div className="flex flex-col items-center justify-center text-center min-w-0 px-1">
       <p className="text-[9px] uppercase tracking-wide text-muted-foreground mb-0.5 font-body">Welcome offer</p>
-      <p className="text-[20px] leading-tight font-bold text-foreground font-body w-full whitespace-nowrap overflow-hidden text-ellipsis">
+      <p className="text-[40px] leading-none font-bold text-foreground font-body w-full whitespace-nowrap overflow-hidden text-ellipsis">
         {site.bonus}
       </p>
-      <p className="text-xs font-semibold text-foreground/85 leading-snug line-clamp-2 mt-0.5 font-body w-full">
-        {site.welcomeOffer}
-      </p>
+      {site.welcomeOffer.trim() ? (
+        <p className="text-sm font-semibold text-foreground/85 leading-snug line-clamp-2 mt-1 font-body w-full">
+          {site.welcomeOffer}
+        </p>
+      ) : null}
     </div>
   )
 }
@@ -264,7 +266,7 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
         <TermsFooter {...termsProps} size="tablet" />
       </div>
 
-      {/* Mobile — bonus on top · logo + stars · CTA footer */}
+      {/* Mobile — bonus on top · logo + CTA · rating */}
       <div className={`md:hidden ${tileClass}`}>
         {isFeatured && (
           <div className="sport-rule-bar h-1" aria-hidden>
@@ -284,28 +286,29 @@ export function OperatorRankingTile({ site, rank }: OperatorRankingTileProps) {
               ) : (
                 <span className="flex-1" aria-hidden />
               )}
-              <CtaLabel className="h-7 px-3 text-[11px] max-w-[108px]" />
+              <span className="ranking-tile__score text-lg text-trophy-gold">{site.rating.toFixed(1)}</span>
             </div>
 
             <div className="px-3 pt-3 pb-2 border-b border-slate-100">
               <MobileBonusBlock site={site} />
             </div>
 
-            <div className="px-3 py-3 flex items-center gap-3">
+            <div className="px-3 py-3 flex items-center gap-2.5 border-b border-slate-100">
               <div className="flex justify-start items-center min-w-0 flex-1">
                 <img
                   src={site.logo || "/placeholder.svg"}
                   alt={site.name}
-                  className="h-[4.25rem] w-full max-w-[142px] object-contain object-left"
+                  className="h-[5rem] w-full max-w-[168px] object-contain object-left"
                 />
               </div>
-              <div className="shrink-0 flex flex-col items-center justify-center min-w-[72px] border-l border-slate-100 pl-3">
-                <span className="ranking-tile__score text-2xl leading-none">{site.rating.toFixed(1)}</span>
-                <StarRow rating={site.rating} size="sm" />
-                <p className="text-[9px] text-muted-foreground mt-0.5 font-body whitespace-nowrap">
-                  ({formatVotes(site.votes)} votes)
-                </p>
-              </div>
+              <CtaLabel className="shrink-0 h-10 px-3 text-sm min-w-[108px] max-w-[132px] flex-1" />
+            </div>
+
+            <div className="px-3 py-2.5 flex flex-col items-center justify-center">
+              <StarRow rating={site.rating} size="sm" />
+              <p className="text-[10px] text-muted-foreground mt-0.5 font-body whitespace-nowrap">
+                ({formatVotes(site.votes)} votes)
+              </p>
             </div>
           </div>
         </Link>
