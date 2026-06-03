@@ -1,0 +1,26 @@
+## Error Type
+Build Error
+
+## Error Message
+Error evaluating Node.js code
+
+## Build Output
+./app/globals.css
+Error evaluating Node.js code
+CssSyntaxError: D:\Work-IT\White\topbettingsiteslist\app\globals.css:189:5: The `not-prose` class does not exist. If `not-prose` is a custom class, make sure it is defined within a `@layer` directive.
+    [at error (turbopack:///[project]/node_modules/postcss/lib/input.js:135:16)]
+    [at error (turbopack:///[project]/node_modules/postcss/lib/node.js:146:32)]
+    [at processApply (D:\Work-IT\White\topbettingsiteslist\node_modules\tailwindcss\lib\lib\expandApplyAtRules.js:380:29)]
+    [at D:\Work-IT\White\topbettingsiteslist\node_modules\tailwindcss\lib\lib\expandApplyAtRules.js:551:9]
+    [at D:\Work-IT\White\topbettingsiteslist\node_modules\tailwindcss\lib\processTailwindFeatures.js:55:50]
+    [at async plugins (D:\Work-IT\White\topbettingsiteslist\node_modules\tailwindcss\lib\plugin.js:38:17)]
+    [at async LazyResult.runAsync (turbopack:///[project]/node_modules/postcss/lib/lazy-result.js:293:11)]
+    [at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34)]
+    [at async run (turbopack:///[turbopack-node]/child_process/evaluate.ts:89:23)]
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+Next.js version: 16.2.3 (Turbopack)

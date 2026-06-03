@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 20% 94%;
+    --foreground: 160 28% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 28% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 28% 8%;
+    --primary: 158 42% 22%;
+    --primary-foreground: 45 30% 96%;
+    --secondary: 45 12% 88%;
+    --secondary-foreground: 160 28% 8%;
+    --muted: 45 10% 86%;
+    --muted-foreground: 160 8% 36%;
+    --accent: 32 92% 44%;
+    --accent-foreground: 160 28% 8%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 12% 78%;
+    --input: 160 12% 78%;
+    --ring: 158 42% 22%;
+    --radius: 0px;
+
+    --pitch-navy: 160 32% 12%;
+    --pitch-deep: 160 38% 6%;
+    --british-blue: 210 55% 32%;
+    --british-blue-deep: 210 60% 22%;
+    --british-blue-light: 210 70% 48%;
+    --trophy-gold: 32 92% 44%;
+    --trophy-gold-light: 38 96% 54%;
+    --crimson-accent: 0 72% 42%;
+    --crimson-deep: 0 78% 32%;
+    --pitch-green: 158 42% 22%;
+    --score-emerald: 158 48% 30%;
+    --cream-panel: 45 24% 96%;
+    --parchment: 42 18% 91%;
+    --turf-stripe: 158 38% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+
+@layer utilities {
+  .sport-rule-bar {
+    @apply flex h-1 w-full;
+  }
+  .sport-rule-bar > *:nth-child(1) {
+    @apply flex-[2] bg-[hsl(var(--pitch-green))];
+  }
+  .sport-rule-bar > *:nth-child(2) {
+    @apply flex-1 bg-[hsl(var(--trophy-gold))];
+  }
+  .sport-rule-bar > *:nth-child(3) {
+    @apply flex-[2] bg-[hsl(var(--crimson-accent))];
+  }
+
+  .brand-flat-hero {
+    @apply bg-[hsl(var(--pitch-deep))] border-2 border-[hsl(var(--pitch-green))];
+  }
+
+  .brand-flat-panel {
+    @apply bg-[hsl(var(--pitch-navy))] border-2 border-[hsl(var(--pitch-green)/0.5)];
+  }
+
+  .brand-score-text {
+    color: hsl(var(--score-emerald));
+  }
+
+  .brand-cta {
+    @apply bg-[hsl(var(--trophy-gold))] text-[hsl(var(--pitch-deep))] font-bold hover:brightness-105 transition-colors border-2 border-[hsl(var(--pitch-deep))];
+  }
+
+  .brand-cta-outline {
+    @apply border-2 border-[hsl(var(--pitch-green))] text-[hsl(var(--pitch-green))] bg-transparent hover:bg-[hsl(var(--pitch-green)/0.08)];
+  }
+
+  .brand-cta-uk {
+    @apply bg-[hsl(var(--pitch-green))] text-white font-bold hover:brightness-110 transition-colors border-2 border-[hsl(var(--pitch-deep))];
+  }
+
+  .brand-border-uk {
+    @apply border-2 border-[hsl(var(--pitch-green))];
+  }
+
+  .disclaimer-strip {
+    @apply border-2 border-slate-300 bg-white px-3 py-2 text-center;
+  }
+
+  .card-surface {
+    @apply bg-white border-2 border-slate-300;
+  }
+
+  .card-surface-alt {
+    @apply bg-[hsl(var(--parchment))] border-2 border-slate-300;
+  }
+
+  .font-display {
+    font-family: var(--font-display), "Arial Narrow", sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  .legal-page-shell {
+    @apply bg-[hsl(var(--cream-panel))];
+  }
+
+  .legal-prose {
+    @apply font-body text-[15px] leading-[1.75] text-slate-700;
+  }
+
+  .legal-prose section + section {
+    @apply mt-8 pt-8 border-t-2 border-slate-200;
+  }
+
+  .legal-prose h2 {
+    @apply font-display text-lg sm:text-xl font-bold text-pitch-navy tracking-wide mb-3 mt-0 normal-case;
+  }
+
+  .legal-prose h3 {
+    @apply font-display text-base font-semibold text-pitch-navy mb-2 mt-0 normal-case;
+  }
+
+  .legal-prose p {
+    @apply mb-4 last:mb-0;
+  }
+
+  .legal-prose ul {
+    @apply list-disc pl-5 mb-4 space-y-2;
+  }
+
+  .legal-prose li {
+    @apply pl-0.5;
+  }
+
+  .legal-prose strong {
+    @apply font-semibold text-pitch-navy;
+  }
+
+  .legal-callout {
+    @apply border-2 border-slate-300 bg-slate-50 px-4 py-4;
+  }
+
+  .legal-callout h3 {
+    @apply font-display text-base font-semibold text-pitch-navy mb-2 mt-0;
+  }
+
+  .legal-callout ul {
+    @apply list-disc pl-5 mb-0 space-y-1.5 text-sm text-slate-700 font-body;
+  }
+
+  .legal-callout--alert {
+    @apply border-l-4 border-l-crimson border-slate-300 bg-slate-50;
+  }
+
+  .legal-callout--alert h2,
+  .legal-callout--alert h3 {
+    @apply text-crimson-deep font-display font-bold text-base mb-2;
+  }
+
+  .legal-callout--alert p {
+    @apply text-sm text-slate-700 m-0 font-body leading-relaxed;
+  }
+
+  .legal-card-grid {
+    @apply grid gap-3 sm:grid-cols-2;
+  }
+
+  .legal-card {
+    @apply border-2 border-slate-300 bg-white px-4 py-3;
+  }
+
+  .legal-card h3 {
+    @apply font-display text-sm font-semibold text-pitch-navy mb-1 mt-0;
+  }
+
+  .legal-card p {
+    @apply text-sm text-slate-600 m-0 font-body leading-relaxed;
+  }
+
+  .ranking-tile {
+    @apply relative overflow-hidden border-2 border-slate-300 bg-white transition-colors hover:border-[hsl(var(--pitch-green))];
+  }
+
+  .ranking-tile--featured {
+    @apply border-[hsl(var(--pitch-green))] ring-0;
+  }
+
+  .ranking-tile__rank-strip {
+    @apply flex flex-col items-center justify-center bg-pitch-navy text-white shrink-0 border-r-2 border-[hsl(var(--trophy-gold))];
+  }
+
+  .ranking-tile__score {
+    @apply font-display font-bold leading-none brand-score-text tabular-nums;
+  }
+
+  .ranking-tile__terms {
+    @apply border-t-2 border-slate-300 bg-slate-50 px-3 sm:px-4 py-2.5 font-body;
+  }
+
+  .editorial-index {
+    @apply font-display text-4xl sm:text-5xl font-bold leading-none text-trophy-gold/30 select-none tabular-nums;
+  }
+
+  .editorial-kicker {
+    @apply text-[10px] font-bold tracking-[0.28em] uppercase font-body;
+  }
+
+  .editorial-rule-gold {
+    @apply h-0.5 w-16 bg-trophy-gold;
+  }
+
+  .flat-section {
+    @apply border-2 border-slate-300 bg-white;
+  }
+
+  .flat-section-dark {
+    @apply border-2 border-[hsl(var(--pitch-green))] bg-pitch-navy text-white;
+  }
+}
